@@ -46,9 +46,9 @@ function App() {
 
   return (
     <>
-      <h1 id="title">Temperature Converter</h1>
+      <p id="title">Temperature Converter</p>
       <form action="">
-        <div className="type">
+        <div className="tempType">
           <h2 className="name">Celsius °C:</h2>
           <TextField
             id="celsius"
@@ -64,7 +64,7 @@ function App() {
             onChange={handleChange}
           />
         </div>
-        <div className="type">
+        <div className="tempType">
           <h2 className="name">Fahrenheit °F: </h2>
           <TextField
             id="fahrenheit"
@@ -78,10 +78,11 @@ function App() {
             onChange={handleChange}
           />
         </div>
-        <div className="type">
+        <div className="tempType">
           <h2 className="name">Kelvin °K:</h2>
           <TextField
             id="kelvin"
+            color="warning"
             label="°K"
             type="number"
             InputLabelProps={{

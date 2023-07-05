@@ -1,16 +1,23 @@
 /* My CSS */
-#outlined-number {
+/* #outlined-number {
   color: white;
-  /* border: 2px solid rgb(26, 171, 233); */
-}
-.type {
+  border: 2px solid rgb(26, 171, 233);
+} */
+
+.tempType {
   display: flex;
   text-align: left;
   align-items: center;
 }
 #title {
   text-align: center;
+  font-size: 42px;
+  font-weight: bold;
 }
+#title:hover {
+  color: #becec6;
+}
+
 #built {
   margin-top: 100px; /* distance from top app */
   padding-top: 5px;
