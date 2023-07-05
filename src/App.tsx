@@ -10,7 +10,7 @@ function App() {
   const [fahrenheit, setFahrenheit] = useState(32);
   const [kelvin, setKelvin] = useState(273.15);
 
-  function handleChange(event) {
+  function handleChange(event: { target: { id: string; value: any } }) {
     if (event.target.id === "celsius") {
       const celsius = event.target.value;
       setCelsius(celsius);
