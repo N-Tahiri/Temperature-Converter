@@ -11,35 +11,45 @@ function App() {
   const [kelvin, setKelvin] = useState(273.15);
 
   function handleChange(event: { target: { id: string; value: any } }) {
+    // Changes on celsius
     if (event.target.id === "celsius") {
       const celsius = event.target.value;
       setCelsius(celsius);
 
       const toFahrenheit = (celsius * 9) / 5 + 32;
-      setFahrenheit(toFahrenheit);
+
+      console.log(toFahrenheit); // Normal display
+      console.log(toFahrenheit.toFixed(2)); // format: rounds the number to two decimal places and returns it as a STRING
+      console.log(Math.round(toFahrenheit * 100) / 100); // format: this one doesn't convert the number to string, the one to use
+
+      setFahrenheit(Math.round(toFahrenheit * 100) / 100);
 
       const toKelvin = parseFloat(celsius) + 273.15;
-      setKelvin(toKelvin);
+      setKelvin(Math.round(toKelvin * 100) / 100);
     }
+
+    // Changes on fahrenheit
     if (event.target.id === "fahrenheit") {
       const fahrenheit = event.target.value;
       setFahrenheit(fahrenheit);
 
       const toCelsius = ((fahrenheit - 32) * 5) / 9;
-      setCelsius(toCelsius);
+      setCelsius(Math.round(toCelsius * 100) / 100);
 
-      const toKelvin = fahrenheit + 457.87;
-      setKelvin(toKelvin);
+      const toKelvin = (fahrenheit - 32) / 1.7999999 + 273.5; // fixed formula here
+      setKelvin(Math.round(toKelvin * 100) / 100);
     }
+
+    // Changes on kelvin
     if (event.target.id === "kelvin") {
       const kelvin = event.target.value;
       setKelvin(kelvin);
 
       const toCelsius = parseFloat(kelvin) - 273.15;
-      setCelsius(toCelsius);
+      setCelsius(Math.round(toCelsius * 100) / 100);
 
       const toFahrenheit = kelvin - 457.87;
-      setFahrenheit(toFahrenheit);
+      setFahrenheit(Math.round(toFahrenheit * 100) / 100);
     }
     console.log("Current change on. ", event.target.id);
   }
